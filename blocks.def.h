@@ -1,9 +1,13 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
+#define PATH(name)                       "$HOME/.local/bin/dwm-blocks/"name
+
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},
+	//{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},
 
-	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
+	//{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
+
+  {"",      PATH("date-dwm"),       5,       0},
 };
 
 //sets delimiter between status commands. NULL character ('\0') means no delimiter.
