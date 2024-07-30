@@ -3,10 +3,12 @@ CC      := cc
 CFLAGS  := -pedantic -Wall -Wno-deprecated-declarations -Os
 LDFLAGS := -lX11
 
-# FreeBSD (uncomment)
-#LDFLAGS += -L/usr/local/lib -I/usr/local/include
-# # OpenBSD (uncomment)
-#LDFLAGS += -L/usr/X11R6/lib -I/usr/X11R6/include
+HOST := $(shell uname -n)
+
+ifeq ($(HOST), disaster)
+#define
+	CONFIG_FLAG = -DHOST_DISASTER
+endif
 
 all: options dwmblocks
 
@@ -15,9 +17,10 @@ options:
 	@echo "CFLAGS  = ${CFLAGS}"
 	@echo "LDFLAGS = ${LDFLAGS}"
 	@echo "CC      = ${CC}"
+	@echo "CONFIG_FLAG = ${CONFIG_FLAG}"
 
 dwmblocks: dwmblocks.c blocks.def.h blocks.h
-	${CC} -o dwmblocks dwmblocks.c ${CFLAGS} ${LDFLAGS}
+	${CC} -o dwmblocks dwmblocks.c ${CFLAGS} ${LDFLAGS} ${CONFIG_FLAG}
 
 blocks.h:
 	cp blocks.def.h $@
