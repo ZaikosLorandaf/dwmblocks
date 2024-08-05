@@ -1,6 +1,6 @@
 PREFIX  := /usr/local
 CC      := cc
-CFLAGS  := -pedantic -Wall -Wno-deprecated-declarations -Os
+:x
 LDFLAGS := -lX11
 
 HOST := $(shell uname -n)
