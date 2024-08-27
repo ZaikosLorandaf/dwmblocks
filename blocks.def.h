@@ -5,7 +5,7 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 
   {"",PATH("dwmb-date"),        0,      10},
-  {"",PATH("dwmb-netstatus"),   0,      10},
+  {"",PATH("dwmb-netstatus"),   0,      11},
 
   #ifdef HOST_DISASTER
     {"","backlightctl -g -q",   0,      2},
